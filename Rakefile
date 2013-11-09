@@ -12,7 +12,6 @@ if File.exist?('/etc/system-release') && File.read('/etc/redhat-release') =~ /ce
 elsif File.exist?('/etc/os-release') && File.read('/etc/os-release') =~ /ubuntu|debian/i
   distro = 'deb'
   fpm_opts << " --deb-user root --deb-group root "
-  fpm_opts << " --depends google-chrome-stable "
 end
 
 unless distro
