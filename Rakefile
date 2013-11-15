@@ -23,7 +23,7 @@ CLEAN.include("jailed-root")
 CLEAN.include("log")
 CLEAN.include("pkg")
 
-%w(1.6.6 1.6.7.2 1.6.7 1.6.8 1.7.0 1.7.1 1.7.2 1.7.3 1.7.4 1.7.5 1.7.6).each do |version|
+%w(1.6.6 1.6.7.2 1.6.7 1.6.8 1.7.0 1.7.1 1.7.2 1.7.3 1.7.4 1.7.5 1.7.6 1.7.7).each do |version|
   namespace version do
     prefix = File.join("/opt/local/jruby", version)
 
