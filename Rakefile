@@ -36,7 +36,7 @@ CLEAN.include("pkg")
 
     task :download do
       cd 'downloads' do
-        url, checksum = %x[curl --fail https://raw.github.com/sstephenson/ruby-build/master/share/ruby-build/jruby-#{version} 2>/dev/null].lines.grep(/amazonaws/).first.gsub('"', '').split[2].split('#')
+        url, checksum = %x[curl --fail -L https://raw.github.com/sstephenson/ruby-build/master/share/ruby-build/jruby-#{version} 2>/dev/null].lines.grep(/amazonaws/).first.gsub('"', '').split[2].split('#')
         jruby_source = File.basename(url)
         sh("curl --fail #{url} > #{jruby_source} 2>/dev/null")
         sh("echo '#{checksum}  #{jruby_source}' > #{jruby_source}.md5")
