@@ -39,8 +39,8 @@ CLEAN.include("pkg")
         url, checksum = %x[curl --fail https://raw.githubusercontent.com/sstephenson/ruby-build/master/share/ruby-build/jruby-#{version} 2>/dev/null].lines.grep(/amazonaws/).first.gsub('"', '').split[2].split('#')
         jruby_source = File.basename(url)
         sh("curl --fail #{url} > #{jruby_source} 2>/dev/null")
-        sh("echo '#{checksum}  #{jruby_source}' > #{jruby_source}.md5")
-        sh("md5sum --check --status #{jruby_source}.md5")
+        sh("echo '#{checksum}  #{jruby_source}' > #{jruby_source}.sha256")
+        sh("sha256sum --check --status #{jruby_source}.sha256")
       end
     end
 
