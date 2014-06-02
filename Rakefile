@@ -25,7 +25,7 @@ CLEAN.include("pkg")
 
 %w(1.6.6 1.6.7.2 1.6.7 1.6.8 1.7.0 1.7.1 1.7.2 1.7.3 1.7.4 1.7.5 1.7.6 1.7.8 1.7.9 1.7.10 1.7.11 1.7.12).each do |version|
   namespace version do
-    prefix = File.join("/opt/local/jruby", version)
+    prefix = File.join("/opt/local/ruby", version)
 
     task :init do
       mkdir_p "log"
