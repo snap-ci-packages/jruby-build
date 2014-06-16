@@ -54,7 +54,7 @@ CLEAN.include("pkg")
     task :fpm do
       mkdir_p "pkg"
       description_string = %Q{JRuby is a 100% Java implementation of the Ruby programming language. It is Ruby for the JVM. JRuby provides a complete set of core "builtin" classes and syntax for the Ruby language, as well as most of the Ruby Standard Libraries.}
-      release = ENV['GO_PIPELINE_COUNTER'] || ENV['RELEASE'] || 1
+      release = Time.now.utc.strftime('%Y%m%d%H%M%S')
       cd "pkg" do
         sh(%Q{
           bundle exec fpm -s dir -t #{distro} --name jruby-#{version} -a x86_64 --version "#{version}" -C ../jailed-root --directories #{prefix} --verbose #{fpm_opts} --maintainer snap-ci@thoughtworks.com --vendor snap-ci@thoughtworks.com --url http://snap-ci.com --description "#{description_string}" --iteration #{release} --license '(CPL or GPLv2+ or LGPLv2+) and BSD and (GPLv2 or Ruby) and (BSD or Ruby)' .
